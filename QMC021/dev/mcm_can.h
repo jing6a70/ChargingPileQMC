@@ -26,7 +26,7 @@ public:
 signals:
 
 public slots:
-    virtual void msg(quint32 canid, char* dat, quint8 len);
+    virtual void msg(quint32 canid, char* dat, quint8 len) = 0;
 
 public:
     int socket;

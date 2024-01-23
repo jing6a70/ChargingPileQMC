@@ -64,7 +64,7 @@ private:
 signals:
 
 public slots:
-    void msg(quint32 canid, char* dat, quint8 len);
+    void msg(quint32 canid, char* dat, quint8 len) override;
 
 private:
     MCM_Data *Rec;

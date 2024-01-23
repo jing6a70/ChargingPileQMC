@@ -8,10 +8,6 @@ namespace Ui {
     class App_Password;
 }
 
-struct st1{
-    quint8 rc_type;
-    quint8 type_12;
-};
 
 class App_Password : public QWidget
 {
@@ -23,7 +19,6 @@ public:
 
 signals:
     void rx_key(quint16 key_val);
-    void rx_set1(struct st1* s);
 
 public slots:
     bool eventFilter(QObject *,QEvent *) override;
@@ -39,10 +34,6 @@ private:
     Ui::App_Password *ui;
     QWidget *keymap_num = nullptr;
     QLineEdit* lineEdit;
-
-
-    struct st1 s1;
-
 };
 
 #endif // APP_PASSWORD_H

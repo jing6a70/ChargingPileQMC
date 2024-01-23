@@ -40,12 +40,7 @@ quint8 MCM_CAN::can_tx(struct can_frame *frame)
 }
 
 
-void MCM_CAN::msg(quint32 canid, char* dat, quint8 len)
-{
-    QString str;
-    str = QString(dat);
-    qDebug() << "MCM_CAN rx: " << str << "CAN ID:" << QString().sprintf("%X", canid);
-}
+
 
 
 

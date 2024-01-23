@@ -6,7 +6,8 @@
 #   <2024-01-20> Add CM017
 
 QT       += core gui widgets
-DEFINES  += GOOGLE_CHINESE_LIB CM017
+QT       += serialport
+DEFINES  += GOOGLE_CHINESE_LIB
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -23,7 +24,8 @@ SOURCES += main.cpp\
     Keyboard/Keyboard.cpp \
     Keyboard/KeyButton.cpp \
     Keyboard/NumberKeyboard.cpp \
-    systemconfig.cpp
+    systemconfig.cpp \
+    dev/qmc_serialport.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -35,20 +37,21 @@ HEADERS  += mainwindow.h \
     Keyboard/Keyboard.h \
     Keyboard/KeyButton.h \
     Keyboard/NumberKeyboard.h \
-    systemconfig.h
+    systemconfig.h \
+    dev/qmc_serialport.h
 
 
-contains(DEFINES, CM017) {
+mc_cm017 {
     SOURCES += dev/mcm_can_thread.cpp \
                 dev/mcm_can.cpp \
-                MCM/mcm_data.cpp \
-                MCM/devmcm.cpp
-
+                cm/mcm_data.cpp \
+                cm/devmcm.cpp
     HEADERS += dev/mcm_can_thread.h \
                 dev/mcm_can.h \
-                MCM/mcm_data.h \
-                MCM/devmcm.h
+                cm/mcm_data.h \
+                cm/devmcm.h
 }
+
 
 
 contains(DEFINES, ENABLED_CHINESE_LIB) {
